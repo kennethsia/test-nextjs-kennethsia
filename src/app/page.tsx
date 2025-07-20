@@ -1,3 +1,4 @@
+import AddRecipe from '@/components/AddRecipe';
 import FavoritesFilter from '@/components/FavoritesFilter';
 import Home from '@/components/layout/Home';
 import LoadingComponent from '@/components/LoadingComponent';
@@ -23,6 +24,7 @@ export default async function RecipesPage({ searchParams }: Props) {
           </>
         }
       >
+        <AddRecipe />
         <RecipesList searchParams={searchParams} />
       </Home>
     </Suspense>
