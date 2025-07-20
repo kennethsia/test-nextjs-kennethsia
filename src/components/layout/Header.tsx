@@ -1,3 +1,4 @@
+import Search from '@/components/Search';
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import { Suspense } from 'react';
@@ -27,7 +28,7 @@ export default function Header() {
       <Suspense
         fallback={<Skeleton variant="rectangular" width={200} height={40} />}
       >
-        {'this is a placeholder for the search component'}
+        <Search />
       </Suspense>
     </Box>
   );
