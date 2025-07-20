@@ -27,7 +27,6 @@ export async function uploadFile(
     const buffer = Buffer.from(bytes);
     const filePath = path.join(`${process.cwd()}/public/${fileName}`);
     await writeFile(filePath, buffer);
-    console.log(`file has been uploaded to ${filePath}`);
     return { message: 'File uploaded successfully', data: null };
   } catch (error: unknown) {
     return {

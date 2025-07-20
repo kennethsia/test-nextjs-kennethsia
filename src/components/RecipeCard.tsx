@@ -1,3 +1,5 @@
+'use client';
+
 import { RecipeType } from '@/models';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -5,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import Link from 'next/link';
+import FavoriteButton from './FavoriteButton';
 
 type Props = {
   recipe: RecipeType;
@@ -37,6 +40,7 @@ export default function RecipeCard({ recipe }: Props) {
           flexShrink: 0,
         }}
       >
+        <FavoriteButton recipe={recipe} />
         <Image
           src={`/${recipe.imageFilename}?v=${Date.now()}`}
           alt="Recipe Image"
