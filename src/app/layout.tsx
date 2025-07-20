@@ -1,3 +1,5 @@
+import Header from '@/components/layout/Header';
+import Main from '@/components/layout/Main';
 import theme from '@/theme';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
@@ -26,7 +28,10 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <AppRouterCacheProvider>
         <ThemeProvider theme={theme}>
-          <body>{children}</body>
+          <body>
+            <Header />
+            <Main>{children}</Main>
+          </body>
         </ThemeProvider>
       </AppRouterCacheProvider>
     </html>

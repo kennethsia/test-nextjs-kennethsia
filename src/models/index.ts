@@ -20,3 +20,9 @@ export type ApiResponse<T> = {
   error?: string;
   message?: string;
 };
+
+export type RecipeSearchParams = {
+  q?: string;
+  _order?: 'asc' | 'desc';
+  favorite?: 'yes' | 'no';
+};
