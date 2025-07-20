@@ -14,3 +14,9 @@ export const RecipeSchema = z.object({
 });
 
 export type RecipeType = z.infer<typeof RecipeSchema>;
+
+export type ApiResponse<T> = {
+  data?: T | null;
+  error?: string;
+  message?: string;
+};
