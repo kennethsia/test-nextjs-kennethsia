@@ -7,7 +7,7 @@
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       "ingredients": "400g spaghetti, 300g ground beef, 1 onion, 2 garlic cloves, 400g tomato sauce",
       "instructions": "Cook pasta. Brown beef with onion and garlic. Add tomato sauce. Simmer. Serve over pasta.",
-      "imageFilename": "Spaghetti Bolognese.jpg",
+      "imageFilename": "placeholder.jpg",
       "createdDate": "2024-07-02T12:30:00Z",
       "favorite": "yes",
       "id": 1
@@ -19,7 +19,7 @@
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       "ingredients": "2 chicken breasts, romaine lettuce, croutons, parmesan, Caesar dressing",
       "instructions": "Grill chicken. Toss lettuce with dressing. Top with chicken, croutons, and parmesan.",
-      "imageFilename": "Chicken Caesar Salad.jpg",
+      "imageFilename": "placeholder.jpg",
       "createdDate": "2024-07-03T10:15:00Z",
       "favorite": "yes",
       "id": 2
@@ -31,7 +31,7 @@
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       "ingredients": "3 ripe bananas, 2 cups flour, 1 cup sugar, 2 eggs, 1/2 cup butter, 1/2 cup walnuts",
       "instructions": "Mash bananas. Mix with other ingredients. Bake at 350°F for 50 minutes.",
-      "imageFilename": "Chicken Banana.jpg",
+      "imageFilename": "placeholder.jpg",
       "createdDate": "2024-07-05T09:20:00Z",
       "favorite": "yes",
       "id": 3
@@ -43,7 +43,7 @@
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       "ingredients": "Taco shells, 300g ground beef, lettuce, tomato, cheese, taco seasoning",
       "instructions": "Cook beef with seasoning. Fill shells with beef and toppings.",
-      "imageFilename": "Beefy.jpg",
+      "imageFilename": "placeholder.jpg",
       "createdDate": "2024-07-06T13:10:00Z",
       "favorite": "no",
       "id": 4
