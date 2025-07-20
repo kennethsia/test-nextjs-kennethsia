@@ -1,7 +1,11 @@
 import fetchFromJsonServer from '@/lib/client';
 import { RecipeType } from '@/models';
 import { revalidateTag } from 'next/cache';
-import { createRecipe, deleteRecipe, updateRecipe } from './recipes';
+import {
+  createRecipe,
+  deleteRecipe,
+  updateRecipe,
+} from '../../app/actions/recipes';
 
 jest.mock('@/lib/client', () => ({
   __esModule: true,

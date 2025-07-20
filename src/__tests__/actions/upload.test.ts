@@ -1,4 +1,4 @@
-import { uploadFile } from './upload';
+import { uploadFile } from '../../app/actions/upload';
 
 jest.mock('fs/promises', () => ({
   writeFile: jest.fn(),

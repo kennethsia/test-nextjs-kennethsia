@@ -1,4 +1,4 @@
-import { buildQueryString } from './helpers';
+import { buildQueryString } from '../../utils/helpers';
 
 describe('buildQueryString', () => {
   it('returns an empty string for empty input', () => {
