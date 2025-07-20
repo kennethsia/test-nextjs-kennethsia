@@ -5,6 +5,7 @@ import {
 } from '@/app/actions/recipes';
 import { uploadFile } from '@/app/actions/upload';
 import { ApiResponse, RecipeSchema, RecipeType } from '@/models';
+import { wait } from '@/utils/helpers';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -27,14 +28,23 @@ export function useRecipeForm(recipe?: RecipeType) {
     defaultValues: recipe || {},
   });
 
+  // State for Snackbar
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+
   // State for image file
   const [imageFile, setImageFile] = useState<File | null>(null);
+
   // Recipe ID for updates and deletions
   const recipeId = recipe?.id?.toString();
 
   /* Handlers */
+  // handler close Snackbar
+  const handleCloseSnackbar = () => {
+    setOpenSnackbar(false);
+  };
   // handler to set image file from ImageViewer component
-  const handleImageChange = (file: File | null) => {
+  const handleImageChange: (file: File | null) => void = (file) => {
     setImageFile(file);
   };
 
@@ -65,9 +75,17 @@ export function useRecipeForm(recipe?: RecipeType) {
     const { data: recipe, error } = await createRecipe(payload);
 
     if (error) {
+      if (error === 'Recipe title must be unique') {
+        setSnackbarMessage('Recipe title must be unique');
+        setOpenSnackbar(true);
+        return;
+      }
       throw new Error(`Error submitting recipe: ${error}`);
     }
-
+    // Show success message
+    setSnackbarMessage('Recipe created successfully!');
+    setOpenSnackbar(true);
+    // Redirect to the recipe list after creation
     router.push('/recipes/' + recipe?.id);
   };
 
@@ -89,6 +107,11 @@ export function useRecipeForm(recipe?: RecipeType) {
     if (error) {
       throw new Error(`Error updating recipe: ${error}`);
     }
+    // Show success message
+    setSnackbarMessage('Recipe updated successfully!');
+    setOpenSnackbar(true);
+    await wait(2000);
+    // Redirect to the recipe list after update
     router.push('/');
   };
 
@@ -110,5 +133,8 @@ export function useRecipeForm(recipe?: RecipeType) {
     onUpdate,
     onDelete,
     recipeId,
+    handleCloseSnackbar,
+    openSnackbar,
+    snackbarMessage,
   };
 }

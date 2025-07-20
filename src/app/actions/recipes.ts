@@ -19,6 +19,18 @@ export async function createRecipe(
     return { error: JSON.stringify(parseResult.error) };
   }
 
+  // get all recipes to ensure unique titles
+  const { data: recipes } = await fetchFromJsonServer('recipes');
+
+  // check for duplicate titles
+  const isDuplicate = recipes.some(
+    (recipe: RecipeType) => recipe.title === parseResult.data.title
+  );
+
+  if (isDuplicate) {
+    return { error: 'Recipe title must be unique' };
+  }
+
   // send POST request to the JSON server
   const { data, ok } = await fetchFromJsonServer('recipes', {
     method: 'POST',

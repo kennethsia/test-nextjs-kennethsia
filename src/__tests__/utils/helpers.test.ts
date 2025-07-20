@@ -1,27 +1,29 @@
-import { buildQueryString } from '../../utils/helpers';
+import { buildQueryString, wait } from '@/utils/helpers';
 
 describe('buildQueryString', () => {
-  it('returns an empty string for empty input', () => {
+  it('returns an empty string for empty params', () => {
     expect(buildQueryString({})).toBe('');
   });
 
-  it('returns a single key-value pair', () => {
-    expect(buildQueryString({ foo: 'bar' })).toBe('foo=bar');
+  it('builds a query string for single values', () => {
+    expect(buildQueryString({ foo: 'bar', baz: 'qux' })).toBe(
+      'foo=bar&baz=qux'
+    );
   });
 
-  it('returns multiple key-value pairs', () => {
-    const result = buildQueryString({ foo: 'bar', baz: 'qux' });
-    // Order is not guaranteed
-    expect(['foo=bar&baz=qux', 'baz=qux&foo=bar']).toContain(result);
-  });
-
-  it('handles array values', () => {
-    const result = buildQueryString({ foo: ['bar', 'baz'] });
-    // Order is not guaranteed
-    expect(['foo=bar&foo=baz', 'foo=baz&foo=bar']).toContain(result);
+  it('builds a query string for array values', () => {
+    expect(buildQueryString({ foo: ['bar', 'baz'] })).toBe('foo=bar&foo=baz');
   });
 
   it('ignores undefined values', () => {
     expect(buildQueryString({ foo: undefined, bar: 'baz' })).toBe('bar=baz');
+  });
+});
+
+describe('wait', () => {
+  it('resolves after the specified time', async () => {
+    const start = Date.now();
+    await wait(100);
+    expect(Date.now() - start).toBeGreaterThanOrEqual(100);
   });
 });

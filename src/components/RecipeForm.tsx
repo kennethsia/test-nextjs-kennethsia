@@ -4,6 +4,7 @@ import { RecipeType } from '@/models';
 import ChevronLeft from '@mui/icons-material/ChevronLeft';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Link from 'next/link';
@@ -29,6 +30,9 @@ export default function RecipeForm({ recipe }: Props) {
     onUpdate,
     onDelete,
     recipeId,
+    handleCloseSnackbar,
+    openSnackbar,
+    snackbarMessage,
   } = useRecipeForm(recipe);
 
   return (
@@ -149,6 +153,14 @@ export default function RecipeForm({ recipe }: Props) {
             Save
           </Button>
         </Stack>
+        <Snackbar
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+          open={openSnackbar}
+          autoHideDuration={5000}
+          onClose={handleCloseSnackbar}
+          message={snackbarMessage}
+          color="success"
+        />
       </Stack>
     </Form>
   );
