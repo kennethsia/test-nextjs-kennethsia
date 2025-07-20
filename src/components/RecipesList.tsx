@@ -17,7 +17,7 @@ export default async function RecipesList({ searchParams }: Props) {
   /* Queries */
   const queryString = buildQueryString(searchParams);
   const { data, error }: ApiResponse<RecipeType[]> = await fetchFromJsonServer(
-    `recipes?_sort=title&${queryString}`,
+    `recipes?${queryString}`,
     {
       next: { tags: ['recipes'] },
     }

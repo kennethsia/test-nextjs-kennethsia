@@ -56,13 +56,14 @@ export default function RecipeCard({ recipe }: Props) {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            mt: 1,
+            mt: 3,
           }}
         >
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            {recipe.name}
+            <strong>Added by:</strong> {recipe.name}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            <strong>Date:</strong>{' '}
             {recipe.createdDate
               ? new Date(recipe.createdDate).toLocaleDateString()
               : 'N/A'}
