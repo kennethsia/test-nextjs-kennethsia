@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+coverage
+.github
+build
+public
+package.json
+package-lock.json
+tsconfig.json
+yarn.lock
+cypress.config.json
