@@ -1,5 +1,6 @@
-// Recipe details E2E test
-
+/**
+ * E2E: Read/Get Recipe
+ */
 describe('Recipe Details', () => {
   before(() => {
     cy.deleteTestRecipes();

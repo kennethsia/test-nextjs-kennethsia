@@ -90,6 +90,24 @@ The project uses Cypress for end-to-end (E2E) testing. E2E tests cover the full 
 npm run e2e -- --spec cypress/e2e/recipe-1-create.cy.js
 ```
 
+## Test & Coverage Report
+
+See [`TEST_REPORT.md`](./TEST_REPORT.md) for the latest Jest test results and coverage summary.
+
+- To run tests: `npm test` or `npx jest`
+- To view coverage: `npx jest --coverage` and open `coverage/lcov-report/index.html`
+- JUnit XML report: `junit.xml` (generated after running tests)
+
+## Cypress E2E Test Report
+
+See [`CYPRESS_REPORT.md`](./CYPRESS_REPORT.md) for the latest Cypress E2E test results and Mochawesome report summary.
+
+- To run all E2E tests and generate a report:
+  ```bash
+  npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true
+  ```
+- Open `cypress/reports/mochawesome.html` for a detailed HTML report.
+
 ## Tech Stack
 
 **Frontend & App:**

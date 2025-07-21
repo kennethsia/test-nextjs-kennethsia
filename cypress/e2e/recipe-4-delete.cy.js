@@ -1,5 +1,6 @@
-// E2E test for recipe delete flow
-
+/**
+ * E2E: Delete Recipe
+ */
 describe('Recipe Delete Flow', () => {
   before(() => {
     cy.deleteTestRecipes();

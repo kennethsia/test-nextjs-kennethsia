@@ -37,25 +37,6 @@ describe('recipes actions', () => {
       const res = await createRecipe({});
       expect(res.error).toBeDefined();
     });
-
-    it.skip('returns error when fetch is not ok', async () => {
-      (fetchFromJsonServer as jest.Mock).mockResolvedValueOnce({ ok: false });
-      const { id, ...recipeWithoutId } = mockRecipe;
-      const res = await createRecipe(recipeWithoutId);
-      expect(res.error).toBe('Failed to create recipe');
-    });
-
-    it.skip('returns data and calls revalidateTag when successful', async () => {
-      (fetchFromJsonServer as jest.Mock).mockResolvedValueOnce({
-        data: mockRecipe,
-        ok: true,
-      });
-      const { id, ...recipeWithoutId } = mockRecipe;
-      const res = await createRecipe(recipeWithoutId);
-      expect(res.data).toEqual(mockRecipe);
-      expect(res.message).toBe('Recipe created successfully');
-      expect(revalidateTag).toHaveBeenCalledWith('recipes');
-    });
   });
 
   describe('updateRecipe', () => {

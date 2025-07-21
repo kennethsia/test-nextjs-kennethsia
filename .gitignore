@@ -10,6 +10,7 @@
 
 # testing
 /coverage
+junit.xml
 
 # next.js
 /.next/
@@ -40,4 +41,4 @@ next-env.d.ts
 
 # cypress
 /cypress/screenshots
-
+/cypress/reports

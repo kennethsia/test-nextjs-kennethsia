@@ -1,5 +1,6 @@
-// Full E2E flow: create a recipe and check it appears on the homepage
-
+/**
+ * E2E: Create Recipe
+ */
 describe('Recipe Creation Full Flow', () => {
   before(() => {
     cy.deleteTestRecipes();
