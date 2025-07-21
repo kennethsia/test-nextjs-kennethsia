@@ -60,6 +60,7 @@ export default function RecipeForm({ recipe }: Props) {
     >
       <Stack
         component="form"
+        data-testid="recipe-form"
         sx={{ '& > :not(style)': { m: 1 } }}
         noValidate
         autoComplete="off"

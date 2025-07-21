@@ -23,6 +23,8 @@ A Next.js app for managing and sharing recipes. Features include Recipe CRUD, Re
 2. **Start the JSON server backend in a seprate terminal:**
 
    ```bash
+   npm run start-server
+   # or
    npx json-server --watch db.json --port 3111
    ```
 
@@ -47,7 +49,9 @@ A Next.js app for managing and sharing recipes. Features include Recipe CRUD, Re
 
 ## Testing
 
-Run all tests with:
+### Unit & Component Tests
+
+Run all unit/component tests with:
 
 ```bash
 npm test
@@ -55,14 +59,58 @@ npm test
 yarn test
 ```
 
-## Technologies Used
+### E2E Tests (Cypress)
+
+The project uses Cypress for end-to-end (E2E) testing. E2E tests cover the full recipe CRUD flow and run against the local dev server and JSON server backend.
+
+#### How to Run Cypress E2E Tests
+
+1. **Start the JSON server backend:**
+   ```bash
+   npm run start-server
+   ```
+2. **Start the Next.js dev server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+3. **Run Cypress in interactive mode:**
+   ```bash
+   npm run e2e:open
+   ```
+   _or run all E2E tests headlessly:_
+   ```bash
+   npm run e2e
+   ```
+
+#### Run a Specific E2E Test File
+
+```bash
+npm run e2e -- --spec cypress/e2e/recipe-1-create.cy.js
+```
+
+## Tech Stack
+
+**Frontend & App:**
 
 - Next.js 14+
 - TypeScript
 - Material UI
 - React Hook Form (form management)
 - Zod (validation)
-- JSON Server (mock backend)
 - Next.js Server Actions (backend interaction)
-- React Testing Library & Jest (unit tests and component tests)
+
+**Backend & Mock API:**
+
+- JSON Server (mock backend)
+
+**Testing:**
+
+- React Testing Library & Jest (unit/component tests)
+- Cypress (E2E tests)
+- @faker-js/faker (random test data for E2E)
+
+**Tooling:**
+
 - Eslint and Prettier (lint and formatting)

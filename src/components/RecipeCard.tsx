@@ -18,11 +18,13 @@ type Props = {
  * @param recipe - An object containing the recipe information
  */
 export default function RecipeCard({ recipe }: Props) {
+  const testId = `recipe-card-${recipe.title.replace(/\s+/g, '-').toLowerCase()}`;
   return (
     <Card
       component={Link}
       href={`/recipes/${recipe.id}`}
       elevation={3}
+      data-testid={testId}
       sx={{
         display: 'flex',
         minHeight: '250px',

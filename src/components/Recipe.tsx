@@ -26,5 +26,5 @@ export default async function Recipe({ id }: Props) {
     return <div>No recipe found</div>;
   }
 
-  return <RecipeForm recipe={data} />;
+  return <RecipeForm recipe={data} data-testid="recipe-details" />;
 }
