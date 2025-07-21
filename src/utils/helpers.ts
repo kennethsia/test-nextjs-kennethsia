@@ -31,3 +31,7 @@ export const buildQueryString = (searchParams: {
 export const wait = (ms: number): Promise<void> => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
+
+export const cleanFileName = (fileName: string): string => {
+  return fileName.replace(/\s+/g, '-').toLowerCase();
+};

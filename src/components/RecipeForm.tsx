@@ -95,6 +95,7 @@ export default function RecipeForm({ recipe }: Props) {
           size="small"
           error={!!errors.title}
           helperText={errors.title?.message}
+          disabled={!!recipeId}
           {...register('title')}
         />
         {/* Description */}

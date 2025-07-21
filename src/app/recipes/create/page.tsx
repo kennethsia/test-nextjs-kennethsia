@@ -1,19 +1,5 @@
-import LoadingComponent from '@/components/LoadingComponent';
-import Recipe from '@/components/Recipe';
-import { Suspense } from 'react';
+import RecipeForm from '@/components/RecipeForm';
 
-type Props = {
-  params: Promise<{
-    id: string;
-  }>;
-};
-
-export default async function RecipeCreatePage({ params }: Props) {
-  const { id } = await params;
-
-  return (
-    <Suspense fallback={<LoadingComponent />}>
-      <Recipe id={id} />
-    </Suspense>
-  );
+export default async function RecipeCreatePage() {
+  return <RecipeForm />;
 }
